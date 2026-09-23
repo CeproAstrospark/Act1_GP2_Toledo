@@ -8,23 +8,18 @@ public class GameManager : MonoBehaviour
     public int score;
     public bool isDroneDead = false;
     public bool isRed = false;
-
-    // Singleton Instance
     public static GameManager Instance { get; private set; }
 
     private void Awake()
     {
-        // Check if another GameManager already exists
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
             return;
         }
 
-        // Set this GameManager as the Singleton instance
         Instance = this;
 
-        // Optional: keep GameManager when changing scenes
         DontDestroyOnLoad(gameObject);
     }
 
