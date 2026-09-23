@@ -11,11 +11,36 @@ public class Drone : MonoBehaviour
 
     private void OnMouseDown()
     {
-        GameManager.Instance.addScore(10);
+        if (GameManager.Instance.isRed == false)
+        {
+            GameManager.Instance.addScore(10);
+            Debug.Log("BUtton Clicked " + GameManager.Instance.score);
+        }
+
+        else
+        {
+            Debug.Log("Drone is in red");
+        }
+
+        GameManager.Instance.isDroneDead = true;
+        gameObject.SetActive(false);
+       
+    }
+
+    private void OnEnable()
+    {
+        Debug.Log("Drone enable");
+    }
+
+    private void OnDisable()
+    {
+        Debug.Log("Drone disabled");
     }
 
     void Update()
     {
+
+
         if (toB)
         {
 

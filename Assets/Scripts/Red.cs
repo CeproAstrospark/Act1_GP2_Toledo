@@ -8,7 +8,16 @@ public class Red : MonoBehaviour
         {
             GameManager.Instance.deductScore(10);
             Debug.Log("score = " + GameManager.Instance.score);
+            GameManager.Instance.isRed = true; 
         }
         
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Drone"))
+        {
+            GameManager.Instance.isRed = false;
+        }
     }
 }
